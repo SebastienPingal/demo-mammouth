@@ -79,7 +79,7 @@ const subItemClasses = computed(() => ({
               )
             ]">
           <div class="feature-wrapper">
-            <Icon name="i-heroicons-check" class="h-4 w-4 shrink-0 content-center"
+            <Icon name="i-heroicons-check" class="h-4 w-4 shrink-0 place-self-center"
               :class="variant === 'light' ? 'text-black-500' : 'text-white'" />
             <div>
               <span class="feature-title" 

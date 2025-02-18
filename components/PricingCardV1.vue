@@ -71,7 +71,7 @@ const subItemClasses = computed(() => ({
       <ul class="space-y-2">
         <li v-for="feature in features" :key="feature.title" class="feature-item">
           <div class="feature-wrapper">
-            <Icon name="i-heroicons-check" class="h-4 w-4 shrink-0"
+            <Icon name="i-heroicons-check" class="h-4 w-4 shrink-0 place-self-center"
               :class="[
                 variant === 'light' ? 'text-black-500' : 'text-white',
                 feature.highlight && 'text-amber-500'
