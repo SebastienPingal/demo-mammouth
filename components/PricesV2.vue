@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { usePricingStore } from '~/stores/pricing'
+const pricingStore = usePricingStore()
+
 // Update feature interfaces to include highlight
 interface Feature {
   title: string
@@ -79,16 +82,43 @@ const expertFeatures: Feature[] = [
     subItems: ['Assistants illimités', 'API disponible']
   }
 ]
+
+const cards = [
+  {
+    title: "Starter",
+    subtitle: "Idéal pour une utilisation occasionnelle",
+    price: 10,
+    features: starterFeatures
+  },
+  {
+    title: "Standard",
+    subtitle: "Idéal pour une utilisation intensive",
+    price: 20,
+    features: standardFeatures,
+    variant: "light",
+    isPopular: true
+  },
+  {
+    title: "Expert",
+    subtitle: "Pour les créateurs d'images",
+    price: 60,
+    features: expertFeatures,
+    variant: "light"
+  }
+]
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-x-4 gap-y-10 justify-center">
-    <PricingCardV2 title="Starter" subtitle="Idéal pour une utilisation occasionnelle" :price="10"
-      :features="starterFeatures" />
-    <PricingCardV2 title="Standard" variant="light" subtitle="Idéal pour une utilisation intensive" :price="20"
-      :features="standardFeatures" :is-popular="true" />
-    <PricingCardV2 variant="light" title="Expert" subtitle="Pour les créateurs d'images" :price="60"
-      :features="expertFeatures" />
+  <div>
+    <div class="flex justify-end">
+      <CardVersionToggle />
+    </div>
+    <div class="flex flex-wrap gap-x-4 gap-y-10 justify-center">
+      <template v-for="(card, index) in cards" :key="index">
+        <PricingCardsSwitcharoo :title="card.title" :subtitle="card.subtitle" :price="card.price"
+          :features="card.features" :variant="card.variant" :is-popular="card.isPopular" />
+      </template>
+    </div>
   </div>
 </template>
 
