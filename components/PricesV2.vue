@@ -88,14 +88,15 @@ const cards = [
     title: "Starter",
     subtitle: "Idéal pour une utilisation occasionnelle",
     price: 10,
-    features: starterFeatures
+    features: starterFeatures,
+    variant: "default" as const
   },
   {
     title: "Standard",
     subtitle: "Idéal pour une utilisation intensive",
     price: 20,
     features: standardFeatures,
-    variant: "light",
+    variant: "light" as const,
     isPopular: true
   },
   {
@@ -103,16 +104,13 @@ const cards = [
     subtitle: "Pour les créateurs d'images",
     price: 60,
     features: expertFeatures,
-    variant: "light"
+    variant: "light" as const
   }
 ]
 </script>
 
 <template>
   <div>
-    <div class="flex justify-end">
-      <CardVersionToggle />
-    </div>
     <div class="flex flex-wrap gap-x-4 gap-y-10 justify-center">
       <template v-for="(card, index) in cards" :key="index">
         <PricingCardsSwitcharoo :title="card.title" :subtitle="card.subtitle" :price="card.price"

@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { usePricingStore } from '~/stores/pricing'
-import PricingCardV1 from './PricingCardV1.vue'
-import PricingCardV2 from './PricingCardV2.vue'
-import CardVersionToggle from './CardVersionToggle.vue'
 
 // Update feature interfaces to include highlight
 interface Feature {
@@ -130,7 +127,7 @@ const cards = [
     subtitle: "Idéal pour une utilisation intensive",
     price: 20,
     features: standardFeatures,
-    variant: "light",
+    variant: "light" as const,
     isPopular: true
   },
   {
@@ -138,16 +135,13 @@ const cards = [
     subtitle: "Pour les créateurs d'images",
     price: 60,
     features: expertFeatures,
-    variant: "light"
+    variant: "light" as const
   }
 ]
 </script>
 
 <template>
   <div>
-    <div class="flex justify-end">
-      <CardVersionToggle />
-    </div>
     <div class="flex flex-wrap gap-x-4 gap-y-10 justify-center">
       <template v-for="(card, index) in cards" :key="index">
         <PricingCardsSwitcharoo :title="card.title" :subtitle="card.subtitle" :price="card.price"
