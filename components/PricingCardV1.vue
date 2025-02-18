@@ -5,6 +5,7 @@ const toast = useToast()
 interface Feature {
   title: string
   subItems?: string[]
+  highlight?: boolean
 }
 
 interface Props {
@@ -13,10 +14,12 @@ interface Props {
   price: number
   features: Feature[]
   variant?: 'default' | 'light'
+  isPopular?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'default'
+  variant: 'default',
+  isPopular: false
 })
 
 const cardClasses = computed(() => ({
@@ -36,7 +39,13 @@ const subItemClasses = computed(() => ({
 </script>
 
 <template>
-  <div class="w-[350px] rounded-lg p-6" :class="cardClasses">
+  <div class="relative w-[350px] rounded-lg p-6" :class="[cardClasses, isPopular && 'border-2 border-amber-500 scale-105']">
+    <div v-if="isPopular" class="absolute -top-3 left-1/2 -translate-x-1/2">
+      <span class="bg-amber-500 text-white text-sm font-medium px-3 py-1 rounded-full">
+        Plus populaire
+      </span>
+    </div>
+
     <div class="space-y-2">
       <h2 class="text-xl font-semibold" :class="textClasses">{{ title }}</h2>
       <p :class="textClasses">{{ subtitle }}</p>
@@ -63,11 +72,17 @@ const subItemClasses = computed(() => ({
         <li v-for="feature in features" :key="feature.title" class="feature-item">
           <div class="feature-wrapper">
             <Icon name="i-heroicons-check" class="h-4 w-4 shrink-0"
-              :class="variant === 'light' ? 'text-primary' : 'text-white'" />
+              :class="[
+                variant === 'light' ? 'text-black-500' : 'text-white',
+                feature.highlight && 'text-amber-500'
+              ]" />
             <div>
-              <span class="feature-title" :class="textClasses">{{ feature.title }}</span>
+              <span class="feature-title" :class="[textClasses, feature.highlight && 'text-amber-500 font-bold']">
+                {{ feature.title }}
+              </span>
               <ul v-if="feature.subItems" class="feature-sublist">
-                <li v-for="subItem in feature.subItems" :key="subItem" :class="subItemClasses">
+                <li v-for="subItem in feature.subItems" :key="subItem" 
+                    :class="[subItemClasses, feature.highlight && 'text-amber-500']">
                   {{ subItem }}
                 </li>
               </ul>

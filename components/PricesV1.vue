@@ -1,5 +1,12 @@
 <script setup lang="ts">
-const starterFeatures = [
+// Update feature interfaces to include highlight
+interface Feature {
+  title: string
+  subItems?: string[]
+  highlight?: boolean
+}
+
+const starterFeatures: Feature[] = [
   {
     title: 'Accès aux meilleurs LLM',
     subItems: ['Claude, GPT-4, Llama, Grok, Mistral, Gemini, DeepSeek']
@@ -21,18 +28,20 @@ const starterFeatures = [
   },
   {
     title: '50 images premium',
-    subItems: ['Illimité avec Flux Schnell']
+    subItems: ['Illimité avec Flux Schnell'],
+    highlight: true
   },
   {
     title: 'Documents',
-    subItems: ['Jusqu\'à 10k caractères']
+    subItems: ['Jusqu\'à 10k caractères'],
+    highlight: true
   },
   {
     title: 'Annulez à tout moment'
   }
 ]
 
-const standardFeatures = [
+const standardFeatures: Feature[] = [
   {
     title: 'Accès aux meilleurs LLM',
     subItems: ['Claude, GPT-4, Llama, Grok, Mistral, Gemini, DeepSeek']
@@ -54,18 +63,20 @@ const standardFeatures = [
   },
   {
     title: '200 images premium',
-    subItems: ['Illimité avec Flux Schnell']
+    subItems: ['Illimité avec Flux Schnell'],
+    highlight: true
   },
   {
     title: 'Documents plus longs',
-    subItems: ['Jusqu\'à 300k caractères']
+    subItems: ['Jusqu\'à 300k caractères'],
+    highlight: true
   },
   {
     title: 'Annulez à tout moment'
   }
 ]
 
-const expertFeatures = [
+const expertFeatures: Feature[] = [
   {
     title: 'Accès aux meilleurs LLM',
     subItems: ['Claude, GPT-4, Llama, Grok, Mistral, Gemini, DeepSeek']
@@ -87,11 +98,13 @@ const expertFeatures = [
   },
   {
     title: '1000 images premium',
-    subItems: ['Illimité avec Flux Schnell']
+    subItems: ['Illimité avec Flux Schnell'],
+    highlight: true
   },
   {
     title: 'Documents plus longs',
-    subItems: ['Jusqu\'à 300k caractères']
+    subItems: ['Jusqu\'à 300k caractères'],
+    highlight: true
   },
   {
     title: 'Annulez à tout moment'
@@ -100,12 +113,12 @@ const expertFeatures = [
 </script>
 
 <template>
-  <div class="flex gap-6 justify-center">
-    <PricingCard title="Starter" subtitle="Idéal pour une utilisation occasionnelle" :price="10"
+  <div class="flex flex-wrap gap-x-4 gap-y-10 justify-center">
+    <PricingCardV1 title="Starter" subtitle="Idéal pour une utilisation occasionnelle" :price="10"
       :features="starterFeatures" />
-    <PricingCard title="Standard" variant="light" subtitle="Idéal pour une utilisation intensive" :price="20"
-      :features="standardFeatures" />
-    <PricingCard variant="light" title="Expert" subtitle="Pour les créateurs d'images" :price="60"
+    <PricingCardV1 title="Standard" variant="light" subtitle="Idéal pour une utilisation intensive" :price="20"
+      :features="standardFeatures" :is-popular="true" />
+    <PricingCardV1 variant="light" title="Expert" subtitle="Pour les créateurs d'images" :price="60"
       :features="expertFeatures" />
   </div>
 </template>
