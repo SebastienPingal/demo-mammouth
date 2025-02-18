@@ -9,5 +9,9 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-02-17",
   colorMode: {
     preference : 'light'
+  },
+  // Required for Netlify
+  nitro: {
+    preset: 'netlify'
   }
 })
