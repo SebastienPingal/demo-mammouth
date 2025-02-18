@@ -11,76 +11,66 @@ interface Feature {
 
 const starterFeatures: Feature[] = [
   {
-    title: 'Accès aux modèles IA',
-    subItems: ['GPT-4, Claude, Mistral, Gemini'],
-    highlight: true
+    title: 'Accès aux meilleurs LLM',
+    subItems: ['Claude, GPT-4, Llama, Grok, Mistral, Gemini, DeepSeek']
   },
   {
-    title: 'Génération d\'images limitée',
-    subItems: ['50 images/mois', 'Midjourney, Dall-E']
+    title: 'Modèle de raisonnement (CoT)',
+    subItems: ['o3-mini, DeepSeek R1']
   },
   {
-    title: 'Traitement de documents',
-    subItems: ['Jusqu\'à 10k caractères']
+    title: 'Générer des images',
+    subItems: ['Midjourney, Dall-E, Stable Diffusion, Recraft & FLUX']
   },
   {
-    title: 'Messages texte',
-    subItems: ['Limite quotidienne de 50 messages']
+    title: 'Créer des assistants de projet'
   },
   {
-    title: 'Assistants basiques',
-    subItems: ['1 assistant par projet']
+    title: 'Messages texte illimités',
+    subItems: ['Une politique d\'utilisation équitable s\'applique']
+  },
+  {
+    title: '50 images premium',
+    subItems: ['Illimité avec Flux Schnell'],
+  },
+  {
+    title: 'Documents',
+    subItems: ['Jusqu\'à 10k caractères'],
+  },
+  {
+    title: 'Annulez à tout moment'
   }
 ]
 
 const standardFeatures: Feature[] = [
   {
-    title: 'Accès aux modèles IA avancés',
-    subItems: ['GPT-4, Claude, Mistral, Gemini, Llama, DeepSeek'],
+    title: 'Tout ce qui est inclus dans Starter',
     highlight: true
   },
   {
-    title: 'Génération d\'images étendue',
-    subItems: ['200 images/mois', 'Tous les moteurs disponibles'],
-    highlight: true
+    title: 'Images premium augmentées',
+    subItems: ['200 images/mois au lieu de 50'],
   },
   {
-    title: 'Traitement de documents pro',
-    subItems: ['Jusqu\'à 300k caractères']
+    title: 'Documents plus longs',
+    subItems: ['Jusqu\'à 300k caractères au lieu de 10k'],
   },
   {
-    title: 'Messages texte illimités',
-    subItems: ['Limite équitable d\'utilisation']
-  },
-  {
-    title: 'Assistants avancés',
-    subItems: ['5 assistants par projet', 'Personnalisation complète']
+    title: 'Priorité de traitement',
+    subItems: ['Temps de réponse optimisé']
   }
 ]
 
 const expertFeatures: Feature[] = [
   {
-    title: 'Accès prioritaire aux modèles IA',
-    subItems: ['Tous les modèles + accès anticipé'],
+    title: 'Tout ce qui est inclus dans Standard',
     highlight: true
   },
   {
-    title: 'Génération d\'images professionnelle',
-    subItems: ['1000 images/mois', 'Priorité de génération'],
-    highlight: true
+    title: 'Images premium professionnelles',
+    subItems: ['1000 images/mois au lieu de 200'],
   },
-  {
-    title: 'Traitement de documents entreprise',
-    subItems: ['Documents illimités', 'Analyse avancée']
-  },
-  {
-    title: 'Messages texte prioritaires',
-    subItems: ['Sans limite', 'Réponses prioritaires']
-  },
-  {
-    title: 'Assistants experts',
-    subItems: ['Assistants illimités', 'API disponible']
-  }
+
 ]
 
 const cards = [
